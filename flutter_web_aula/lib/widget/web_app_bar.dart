@@ -13,30 +13,28 @@ class WebAppBar extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           Expanded(child: Container()),
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.search)
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart_rounded)),
+          SizedBox(
+            width: 10,
           ),
-          IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.shopping_cart_rounded)
-          ),
-          SizedBox(width: 10,),
           OutlinedButton(
-            onPressed: (){},
+            onPressed: () {},
             child: Text("Cadastrar"),
             style: OutlinedButton.styleFrom(
               backgroundColor: Colors.lightBlueAccent,
-              primary: Colors.white,
+              foregroundColor: Colors.white,
             ),
           ),
-          SizedBox(width: 10,),
+          SizedBox(
+            width: 10,
+          ),
           OutlinedButton(
-            onPressed: (){},
+            onPressed: () {},
             child: Text("Entrar"),
             style: OutlinedButton.styleFrom(
               backgroundColor: Colors.orange,
-              primary: Colors.white,
+              foregroundColor: Colors.white,
             ),
           )
         ],

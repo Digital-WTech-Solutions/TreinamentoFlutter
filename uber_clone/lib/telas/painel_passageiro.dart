@@ -125,14 +125,14 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
 
     if (enderecoDestino.isNotEmpty) {
       var local = GeocodingPlatform.instance;
-      var listaLatLng = await local.locationFromAddress(enderecoDestino);
+      var listaLatLng = await local?.locationFromAddress(enderecoDestino);
 
-      if (listaLatLng.isNotEmpty) {
+      if (listaLatLng!.isNotEmpty) {
         var coordenadas = listaLatLng[0];
 
-        var listaEnderecos = await local.placemarkFromCoordinates(
+        var listaEnderecos = await local?.placemarkFromCoordinates(
             coordenadas.latitude, coordenadas.longitude);
-        var endereco = listaEnderecos[0];
+        var endereco = listaEnderecos![0];
 
         var viagem = Destino();
         viagem.cidade = endereco.administrativeArea;
@@ -656,7 +656,7 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: _corBotao,
+                  foregroundColor: _corBotao,
                   padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
                 ),
                 onPressed: _funcaoBotao(),

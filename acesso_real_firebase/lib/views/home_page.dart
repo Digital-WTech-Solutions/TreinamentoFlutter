@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
                     style: const TextStyle(color: Colors.white, fontSize: 20),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xff9c27b0),
+                    backgroundColor: const Color(0xff9c27b0),
                     padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
                   ),
                   onPressed: () {

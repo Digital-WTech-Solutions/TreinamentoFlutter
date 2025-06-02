@@ -21,7 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  late File _imagem;
+  late File? _imagem;
   var _estadoUpload = 'Upload não iniciado';
   var _urlRecuperada = "";
 
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
     var storage = FirebaseStorage.instance;
     var referencia = storage.ref().child('pasta').child('imagem.jpg');
 
-    var task = referencia.putFile(_imagem);
+    var task = referencia.putFile(_imagem!);
     task.snapshotEvents.listen((taskSnapshot) {
       if (taskSnapshot.state == TaskState.running) {
         setState(() {
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
               child: Text('Galeria'),
               onPressed: () => _recuperarImagem(false),
             ),
-            _imagem == null ? Container() : Image.file(_imagem),
+            _imagem == null ? Container() : Image.file(_imagem!),
             ElevatedButton(
               child: Text('Upload Store'),
               onPressed: () => _uploadImagem(),

@@ -159,7 +159,7 @@ class _CadastroState extends State<Cadastro> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xff1ebbd8),
+                      foregroundColor: const Color(0xff1ebbd8),
                       padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
                     ),
                     onPressed: () {

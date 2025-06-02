@@ -10,7 +10,7 @@ class Formulario extends StatefulWidget {
 
 class _FormularioState extends State<Formulario> {
   final _formKey = GlobalKey<FormState>();
-  var _cpfController = TextEditingController();
+  final _cpfController = TextEditingController();
 
   late String? _cpf;
 

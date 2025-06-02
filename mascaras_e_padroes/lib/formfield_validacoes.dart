@@ -36,10 +36,10 @@ class _FormularioValidacaoImagensState
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: GestureDetector(
                             onTap: () {},
-                            child: CircleAvatar(
+                            child: const CircleAvatar(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Icon(Icons.add_a_photo_rounded),
                                 ],
                               ),

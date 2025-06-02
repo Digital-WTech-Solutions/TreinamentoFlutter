@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
                     'Salvar',
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
-                  style: ElevatedButton.styleFrom(primary: Colors.blue),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                 ),
                 ElevatedButton(
                   onPressed: _recuperarDado,
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    backgroundColor: Colors.blue,
                   ),
                 ),
                 ElevatedButton(
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    backgroundColor: Colors.blue,
                   ),
                 ),
               ],

@@ -456,7 +456,7 @@ class _CorridaState extends State<Corrida> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: _corBotao,
+                    foregroundColor: _corBotao,
                     padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
                   ),
                   onPressed: _funcaoBotao()),

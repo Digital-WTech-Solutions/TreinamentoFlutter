@@ -132,8 +132,9 @@ class _HomeState extends State<Home> {
     var local = GeocodingPlatform.instance;
 
     /// Através de um endereço literal, recuperamos latitude, longitude e horário
-    var listaEnderecos = await local.locationFromAddress('Av. Paulosta, 1372');
-    if (listaEnderecos.length > 0) {
+    var listaEnderecos = await local?.locationFromAddress('Av. Paulosta, 1372');
+
+    if (listaEnderecos!.length > 0) {
       Location endereco = listaEnderecos[0];
       print('${endereco.latitude}');
       print('${endereco.longitude}');
@@ -141,8 +142,10 @@ class _HomeState extends State<Home> {
     }
 
     /// Através da latitude e longitude, recuperamos todas as informações a respeito
-    var listagem = await local.placemarkFromCoordinates(-23.562436, -46.655005);
-    if (listagem.length > 0) {
+    var listagem =
+        await local?.placemarkFromCoordinates(-23.562436, -46.655005);
+
+    if (listagem!.length > 0) {
       Placemark placemark = listagem[0];
       print('${placemark.administrativeArea}');
       print('${placemark.subAdministrativeArea}');

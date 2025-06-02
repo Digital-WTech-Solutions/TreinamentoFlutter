@@ -10,9 +10,8 @@ class ResponsividadeRowCol extends StatefulWidget {
 class _ResponsividadeRowColState extends State<ResponsividadeRowCol> {
   @override
   Widget build(BuildContext context) {
-
-    var largura = MediaQuery.of(context).size.width;
-    var altura = MediaQuery.of(context).size.height;
+    // var largura = MediaQuery.of(context).size.width;
+    // var altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -25,11 +24,10 @@ class _ResponsividadeRowColState extends State<ResponsividadeRowCol> {
           //   height: 200,
           // ),
           Expanded(
-            flex: 2,
+              flex: 2,
               child: Container(
                 color: Colors.red,
-              )
-          ),
+              )),
           Expanded(
               flex: 6,
               child: Row(
@@ -38,29 +36,24 @@ class _ResponsividadeRowColState extends State<ResponsividadeRowCol> {
                       flex: 1,
                       child: Container(
                         color: Colors.pink,
-                      )
-                  ),
+                      )),
                   Expanded(
                       flex: 1,
                       child: Container(
                         color: Colors.purple,
-                      )
-                  ),
+                      )),
                   Expanded(
                       flex: 1,
                       child: Container(
                         color: Colors.green,
-                      )
-                  )
+                      ))
                 ],
-              )
-          ),
+              )),
           Expanded(
-            flex: 1,
+              flex: 1,
               child: Container(
                 color: Colors.yellow,
-              )
-          )
+              ))
         ],
       ),
     );

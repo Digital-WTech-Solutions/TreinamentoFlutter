@@ -49,10 +49,10 @@ class _MapaState extends State<Mapa> {
 
   _adicionarMarcador(LatLng latLng) async {
     var locais = GeocodingPlatform.instance;
-    var listaEnderecos = await locais.placemarkFromCoordinates(
+    var listaEnderecos = await locais?.placemarkFromCoordinates(
         latLng.latitude, latLng.longitude);
 
-    if (listaEnderecos.isNotEmpty) {
+    if (listaEnderecos!.isNotEmpty) {
       var endereco = listaEnderecos[0];
       var rua = endereco.thoroughfare;
 
@@ -74,14 +74,13 @@ class _MapaState extends State<Mapa> {
   }
 
   _adicionarLitenerLocalizacao() {
-    var geolocator =
-        Geolocator.getPositionStream(desiredAccuracy: LocationAccuracy.high)
-            .listen((position) => setState(() {
-                  _posicaoCamera = CameraPosition(
-                    target: LatLng(position.latitude, position.longitude),
-                  );
-                  _movimentaCamera();
-                }));
+    Geolocator.getPositionStream(desiredAccuracy: LocationAccuracy.high)
+        .listen((position) => setState(() {
+              _posicaoCamera = CameraPosition(
+                target: LatLng(position.latitude, position.longitude),
+              );
+              _movimentaCamera();
+            }));
   }
 
   _movimentaCamera() async {
