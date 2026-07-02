@@ -21,7 +21,7 @@ class PainelPassageiro extends StatefulWidget {
 }
 
 class _PainelPassageiroState extends State<PainelPassageiro> {
-  var _controllerDestino = TextEditingController();
+  final _controllerDestino = TextEditingController();
   final itensMenu = ["Configurações", "Deslogar"];
   final Completer<GoogleMapController> _controller = Completer();
   var _posicaoCamera = const CameraPosition(
@@ -77,23 +77,23 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
     });
   }
 
-  _recuperaUltimaLocalizacaoConhecida() async {
-    var posicao = await Geolocator.getLastKnownPosition(
-        forceAndroidLocationManager: true);
+  // _recuperaUltimaLocalizacaoConhecida() async {
+  //   var posicao = await Geolocator.getLastKnownPosition(
+  //       forceAndroidLocationManager: true);
 
-    var position = LatLng(posicao!.latitude, posicao.longitude);
+  //   var position = LatLng(posicao!.latitude, posicao.longitude);
 
-    setState(() {
-      if (position != null) {
-        _exibirMarcadorPassageiro(position);
+  //   setState(() {
+  //     if (position != const LatLng(0, 0)) {
+  //       _exibirMarcadorPassageiro(position);
 
-        _posicaoCamera = CameraPosition(
-            target: LatLng(position.latitude, position.longitude), zoom: 19);
-        _localPassageiro = posicao;
-        _movimentarCamera(_posicaoCamera);
-      }
-    });
-  }
+  //       _posicaoCamera = CameraPosition(
+  //           target: LatLng(position.latitude, position.longitude), zoom: 19);
+  //       _localPassageiro = posicao;
+  //       _movimentarCamera(_posicaoCamera);
+  //     }
+  //   });
+  // }
 
   _movimentarCamera(CameraPosition cameraPosition) async {
     var googleMapController = await _controller.future;
@@ -104,8 +104,7 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
   _exibirMarcadorPassageiro(LatLng local) async {
     var pixelRatio = MediaQuery.of(context).devicePixelRatio;
 
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(devicePixelRatio: pixelRatio),
+    BitmapDescriptor.asset(ImageConfiguration(devicePixelRatio: pixelRatio),
             "imagens/passageiro.png")
         .then((BitmapDescriptor icone) {
       Marker marcadorPassageiro = Marker(
@@ -397,7 +396,7 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
   _exibirMarcador(LatLng local, String icone, String infoWindow) async {
     double pixelRatio = MediaQuery.of(context).devicePixelRatio;
 
-    BitmapDescriptor.fromAssetImage(
+    BitmapDescriptor.asset(
             ImageConfiguration(devicePixelRatio: pixelRatio), icone)
         .then((BitmapDescriptor bitmapDescriptor) {
       Marker marcador = Marker(
@@ -425,8 +424,7 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
     LatLng latLngDestino = marcadorDestino.local;
 
     Set<Marker> _listaMarcadores = {};
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(devicePixelRatio: pixelRatio),
+    BitmapDescriptor.asset(ImageConfiguration(devicePixelRatio: pixelRatio),
             marcadorOrigem.caminhoImagem)
         .then((BitmapDescriptor icone) {
       Marker mOrigem = Marker(
@@ -437,8 +435,7 @@ class _PainelPassageiroState extends State<PainelPassageiro> {
       _listaMarcadores.add(mOrigem);
     });
 
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(devicePixelRatio: pixelRatio),
+    BitmapDescriptor.asset(ImageConfiguration(devicePixelRatio: pixelRatio),
             marcadorDestino.caminhoImagem)
         .then((BitmapDescriptor icone) {
       Marker mDestino = Marker(

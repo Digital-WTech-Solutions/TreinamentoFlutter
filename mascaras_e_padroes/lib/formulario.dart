@@ -12,7 +12,7 @@ class _FormularioState extends State<Formulario> {
   final _formKey = GlobalKey<FormState>();
   final _cpfController = TextEditingController();
 
-  late String? _cpf;
+  late String? cpfValue;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _FormularioState extends State<Formulario> {
                 ),
                 controller: _cpfController,
                 onSaved: (valor) {
-                  _cpf = valor;
+                  cpfValue = valor;
                 },
               ),
               ElevatedButton(
@@ -44,7 +44,7 @@ class _FormularioState extends State<Formulario> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Usando controller
-                    setState(() => _cpf = _cpfController.text);
+                    setState(() => cpfValue = _cpfController.text);
                     // Usando onSaved:(){}
                     _formKey.currentState!.save();
                   } else {

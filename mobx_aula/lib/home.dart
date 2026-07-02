@@ -19,8 +19,8 @@ class _HomeState extends State<Home> {
 //    });
 //  }
 
-  Controller controller;
-  ReactionDisposer reactionDisposer;
+  Controller? controller;
+  ReactionDisposer? reactionDisposer;
 
   @override
   void didChangeDependencies() {
@@ -31,8 +31,8 @@ class _HomeState extends State<Home> {
     controller = Provider.of<Controller>(context);
 
     reactionDisposer =
-        reaction((_) => controller.usuarioLogado, (usuarioLogado) {
-      if (usuarioLogado) {
+        reaction((_) => controller?.usuarioLogado, (usuarioLogado) {
+      if (usuarioLogado != null) {
         Navigator.of(context)
             .pushReplacement(MaterialPageRoute(builder: (_) => Principal()));
       }
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
 
   @override
   void dispose() {
-    reactionDisposer();
+    reactionDisposer!();
     super.dispose();
   }
 
@@ -68,21 +68,21 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(16),
               child: TextField(
                 decoration: InputDecoration(labelText: "Email"),
-                onChanged: controller.setEmail,
+                onChanged: controller?.setEmail,
               ),
             ),
             Padding(
               padding: EdgeInsets.all(16),
               child: TextField(
                 decoration: InputDecoration(labelText: "Senha"),
-                onChanged: controller.setSenha,
+                onChanged: controller?.setSenha,
               ),
             ),
             Padding(
               padding: EdgeInsets.all(16),
               child: Observer(
                 builder: (_) {
-                  return Text(controller.formularioValidado
+                  return Text(controller!.formularioValidado
                       ? "Validado"
                       : "* Campos não validados");
                 },
@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
               child: Observer(
                 builder: (_) {
                   return ElevatedButton(
-                    child: controller.carregando
+                    child: controller!.carregando
                         ? CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation(Colors.white),
                           )
@@ -101,9 +101,9 @@ class _HomeState extends State<Home> {
                             "Logar",
                             style: TextStyle(color: Colors.black, fontSize: 30),
                           ),
-                    onPressed: controller.formularioValidado
+                    onPressed: controller!.formularioValidado
                         ? () {
-                            controller.logar();
+                            controller!.logar();
                           }
                         : null,
                   );

@@ -29,6 +29,7 @@ class GeradorDeRotas {
       default:
         _erroRota();
     }
+    return null;
   }
 
   static Route<dynamic> _erroRota() {

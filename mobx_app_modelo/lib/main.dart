@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // Classe Controller do MobX
-  final _controller = ControllerMob();
+  final controller = ControllerMob();
   final _controllerAuto = ControllerAutoMobX();
 
   @override

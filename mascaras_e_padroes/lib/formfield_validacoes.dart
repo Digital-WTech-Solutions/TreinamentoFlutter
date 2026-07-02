@@ -22,7 +22,9 @@ class _FormularioValidacaoImagensState
         padding: const EdgeInsets.all(16),
         child: FormField<List>(
             initialValue: _listaImagens,
-            validator: (imagens) {/* imagens é a lista definida */},
+            validator: (imagens) {
+              return null; /* imagens é a lista definida */
+            },
             builder: (state) {
               return Column(
                 children: [

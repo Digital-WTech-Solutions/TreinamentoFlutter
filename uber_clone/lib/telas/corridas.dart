@@ -67,12 +67,12 @@ class _CorridaState extends State<Corrida> {
     });
   }
 
-  _recuperaUltimaLocalizacaoConhecida() async {
-    var position = await Geolocator.getLastKnownPosition();
-    if (position != null) {
-      //Atualizar localização em tempo real do motorista
-    }
-  }
+  // _recuperaUltimaLocalizacaoConhecida() async {
+  //   var position = await Geolocator.getLastKnownPosition();
+  //   if (position != null) {
+  //     //Atualizar localização em tempo real do motorista
+  //   }
+  // }
 
   _movimentarCamera(CameraPosition cameraPosition) async {
     GoogleMapController googleMapController = await _controller.future;
@@ -83,7 +83,7 @@ class _CorridaState extends State<Corrida> {
   _exibirMarcador(LatLng local, String icone, String infoWindow) async {
     double pixelRatio = MediaQuery.of(context).devicePixelRatio;
 
-    BitmapDescriptor.fromAssetImage(
+    BitmapDescriptor.asset(
             ImageConfiguration(devicePixelRatio: pixelRatio), icone)
         .then((BitmapDescriptor bitmapDescriptor) {
       Marker marcador = Marker(
@@ -98,11 +98,11 @@ class _CorridaState extends State<Corrida> {
     });
   }
 
-  _recuperarRequisicao() async {
-    String idRequisicao = widget.idRequisicao.toString();
-    var banco = FirebaseFirestore.instance;
-    await banco.collection("requisicoes").doc(idRequisicao).get();
-  }
+  // _recuperarRequisicao() async {
+  //   String idRequisicao = widget.idRequisicao.toString();
+  //   var banco = FirebaseFirestore.instance;
+  //   await banco.collection("requisicoes").doc(idRequisicao).get();
+  // }
 
   _adicionarListenerRequisicao() async {
     FirebaseFirestore banco = FirebaseFirestore.instance;
@@ -135,7 +135,6 @@ class _CorridaState extends State<Corrida> {
             _statusConfirmada();
             break;
           case StatusRequisicao.cancelada:
-            // TODO: Handle this case.
             break;
         }
       }
@@ -350,8 +349,7 @@ class _CorridaState extends State<Corrida> {
     double pixelRatio = MediaQuery.of(context).devicePixelRatio;
 
     Set<Marker> _listaMarcadores = {};
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(devicePixelRatio: pixelRatio),
+    BitmapDescriptor.asset(ImageConfiguration(devicePixelRatio: pixelRatio),
             "imagens/motorista.png")
         .then((BitmapDescriptor icone) {
       Marker marcador1 = Marker(
@@ -362,8 +360,7 @@ class _CorridaState extends State<Corrida> {
       _listaMarcadores.add(marcador1);
     });
 
-    BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(devicePixelRatio: pixelRatio),
+    BitmapDescriptor.asset(ImageConfiguration(devicePixelRatio: pixelRatio),
             "imagens/passageiro.png")
         .then((BitmapDescriptor icone) {
       Marker marcador2 = Marker(

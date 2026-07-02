@@ -12,8 +12,8 @@ class _ListagemFixaDropDownState extends State<ListagemFixaDropDown> {
   // Variáveis da classe
   late List<DropdownMenuItem<String>> _listaDropDownEstados;
   late List<DropdownMenuItem<String>> _listaDropDownDiasSemana;
-  late String? _estadoSelecionado;
-  late String? _diaSelecionado;
+  late String? estadoSelecionado;
+  late String? diaSelecionado;
 
   @override
   void initState() {
@@ -31,10 +31,12 @@ class _ListagemFixaDropDownState extends State<ListagemFixaDropDown> {
             child: DropdownButtonFormField(
               hint: const Text('Estados'),
               items: _listaDropDownEstados,
-              validator: (valor) {},
+              validator: (valor) {
+                return null;
+              },
               onChanged: (valor) {
                 setState(() {
-                  _estadoSelecionado = valor.toString();
+                  estadoSelecionado = valor.toString();
                 });
               },
             ),
@@ -43,10 +45,12 @@ class _ListagemFixaDropDownState extends State<ListagemFixaDropDown> {
             child: DropdownButtonFormField(
               hint: const Text('Estados'),
               items: _listaDropDownEstados,
-              validator: (valor) {},
+              validator: (valor) {
+                return null;
+              },
               onChanged: (valor) {
                 setState(() {
-                  _diaSelecionado = valor.toString();
+                  diaSelecionado = valor.toString();
                 });
               },
             ),

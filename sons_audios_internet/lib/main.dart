@@ -18,10 +18,10 @@ class _HomeState extends State<Home> {
   var primeiraExecucao = true;
   var volume = 0.5;
 
-  _executarSomUrl() async {
-    var url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3';
-    await audioPlayer.play(AssetSource(url));
-  }
+  // _executarSomUrl() async {
+  //   var url = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3';
+  //   await audioPlayer.play(AssetSource(url));
+  // }
 
   //static var playerCache = AudioCache();
   _executarSomAudioLocal() async {
